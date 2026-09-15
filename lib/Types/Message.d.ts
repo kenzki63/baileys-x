@@ -194,6 +194,7 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     useUserDevicesCache?: boolean;
     /** jid list of participants for status@broadcast */
     statusJidList?: string[];
+    antiSelf?: boolean;
 };
 export type MiscMessageGenerationOptions = MinimalRelayOptions & {
     /** optional, if you want to manually set the timestamp of the message */
