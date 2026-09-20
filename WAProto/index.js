@@ -79551,6 +79551,7 @@ $root.proto = (function() {
              * @property {proto.Message.InteractiveMessage.IHeader|null} [header] InteractiveMessage header
              * @property {proto.Message.InteractiveMessage.IBody|null} [body] InteractiveMessage body
              * @property {proto.Message.InteractiveMessage.IFooter|null} [footer] InteractiveMessage footer
+             * @property {proto.Message.InteractiveMessage.IBloksWidget|null} [bloksWidget] InteractiveMessage bloksWidget
              * @property {proto.IContextInfo|null} [contextInfo] InteractiveMessage contextInfo
              * @property {proto.IUrlTrackingMap|null} [urlTrackingMap] InteractiveMessage urlTrackingMap
              * @property {proto.Message.InteractiveMessage.IShopMessage|null} [shopStorefrontMessage] InteractiveMessage shopStorefrontMessage
@@ -79597,6 +79598,14 @@ $root.proto = (function() {
              * @instance
              */
             InteractiveMessage.prototype.footer = null;
+
+            /**
+             * InteractiveMessage bloksWidget.
+             * @member {proto.Message.InteractiveMessage.IBloksWidget|null|undefined} bloksWidget
+             * @memberof proto.Message.InteractiveMessage
+             * @instance
+             */
+            InteractiveMessage.prototype.bloksWidget = null;
 
             /**
              * InteractiveMessage contextInfo.
@@ -79668,6 +79677,12 @@ $root.proto = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
+            Object.defineProperty(InteractiveMessage.prototype, "_bloksWidget", {
+                get: $util.oneOfGetter($oneOfFields = ["bloksWidget"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            // Virtual OneOf for proto3 optional field
             Object.defineProperty(InteractiveMessage.prototype, "_contextInfo", {
                 get: $util.oneOfGetter($oneOfFields = ["contextInfo"]),
                 set: $util.oneOfSetter($oneOfFields)
@@ -79720,6 +79735,8 @@ $root.proto = (function() {
                     $root.proto.Message.InteractiveMessage.Body.encode(message.body, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                 if (message.footer != null && Object.hasOwnProperty.call(message, "footer"))
                     $root.proto.Message.InteractiveMessage.Footer.encode(message.footer, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                if (message.bloksWidget != null && Object.hasOwnProperty.call(message, "bloksWidget"))
+                    $root.proto.Message.InteractiveMessage.BloksWidget.encode(message.bloksWidget, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                 if (message.shopStorefrontMessage != null && Object.hasOwnProperty.call(message, "shopStorefrontMessage"))
                     $root.proto.Message.InteractiveMessage.ShopMessage.encode(message.shopStorefrontMessage, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
                 if (message.collectionMessage != null && Object.hasOwnProperty.call(message, "collectionMessage"))
@@ -79776,6 +79793,10 @@ $root.proto = (function() {
                         }
                     case 3: {
                             message.footer = $root.proto.Message.InteractiveMessage.Footer.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 8: {
+                            message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32());
                             break;
                         }
                     case 15: {
@@ -79862,6 +79883,14 @@ $root.proto = (function() {
                             return "footer." + error;
                     }
                 }
+                if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
+                    properties._bloksWidget = 1;
+                    {
+                        var error = $root.proto.Message.InteractiveMessage.BloksWidget.verify(message.bloksWidget);
+                        if (error)
+                            return "bloksWidget." + error;
+                    }
+                }
                 if (message.contextInfo != null && message.hasOwnProperty("contextInfo")) {
                     properties._contextInfo = 1;
                     {
@@ -79946,6 +79975,11 @@ $root.proto = (function() {
                         throw TypeError(".proto.Message.InteractiveMessage.footer: object expected");
                     message.footer = $root.proto.Message.InteractiveMessage.Footer.fromObject(object.footer);
                 }
+                if (object.bloksWidget != null) {
+                    if (typeof object.bloksWidget !== "object")
+                        throw TypeError(".proto.Message.InteractiveMessage.bloksWidget: object expected");
+                    message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.fromObject(object.bloksWidget);
+                }
                 if (object.contextInfo != null) {
                     if (typeof object.contextInfo !== "object")
                         throw TypeError(".proto.Message.InteractiveMessage.contextInfo: object expected");
@@ -80006,6 +80040,11 @@ $root.proto = (function() {
                     object.footer = $root.proto.Message.InteractiveMessage.Footer.toObject(message.footer, options);
                     if (options.oneofs)
                         object._footer = "footer";
+                }
+                if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
+                    object.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.toObject(message.bloksWidget, options);
+                    if (options.oneofs)
+                        object._bloksWidget = "bloksWidget";
                 }
                 if (message.shopStorefrontMessage != null && message.hasOwnProperty("shopStorefrontMessage")) {
                     object.shopStorefrontMessage = $root.proto.Message.InteractiveMessage.ShopMessage.toObject(message.shopStorefrontMessage, options);
@@ -81050,6 +81089,7 @@ $root.proto = (function() {
                  * @property {string|null} [title] Header title
                  * @property {string|null} [subtitle] Header subtitle
                  * @property {boolean|null} [hasMediaAttachment] Header hasMediaAttachment
+                 * @property {proto.Message.InteractiveMessage.IBloksWidget|null} [bloksWidget] Header bloksWidget
                  * @property {proto.Message.IDocumentMessage|null} [documentMessage] Header documentMessage
                  * @property {proto.Message.IImageMessage|null} [imageMessage] Header imageMessage
                  * @property {Uint8Array|null} [jpegThumbnail] Header jpegThumbnail
@@ -81096,6 +81136,14 @@ $root.proto = (function() {
                  * @instance
                  */
                 Header.prototype.hasMediaAttachment = null;
+
+                /**
+                 * Header bloksWidget.
+                 * @member {proto.Message.InteractiveMessage.IBloksWidget|null|undefined} bloksWidget
+                 * @memberof proto.Message.InteractiveMessage.Header
+                 * @instance
+                 */
+                Header.prototype.bloksWidget = null;
 
                 /**
                  * Header documentMessage.
@@ -81166,6 +81214,12 @@ $root.proto = (function() {
                     set: $util.oneOfSetter($oneOfFields)
                 });
 
+                // Virtual OneOf for proto3 optional field
+                Object.defineProperty(Header.prototype, "_bloksWidget", {
+                    get: $util.oneOfGetter($oneOfFields = ["bloksWidget"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
                 /**
                  * Header media.
                  * @member {"documentMessage"|"imageMessage"|"jpegThumbnail"|"videoMessage"|"locationMessage"|"productMessage"|undefined} media
@@ -81219,6 +81273,8 @@ $root.proto = (function() {
                         $root.proto.Message.LocationMessage.encode(message.locationMessage, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
                     if (message.productMessage != null && Object.hasOwnProperty.call(message, "productMessage"))
                         $root.proto.Message.ProductMessage.encode(message.productMessage, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
+                    if (message.bloksWidget != null && Object.hasOwnProperty.call(message, "bloksWidget"))
+                        $root.proto.Message.InteractiveMessage.BloksWidget.encode(message.bloksWidget, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                     return writer;
                 };
 
@@ -81289,6 +81345,10 @@ $root.proto = (function() {
                                 message.productMessage = $root.proto.Message.ProductMessage.decode(reader, reader.uint32());
                                 break;
                             }
+                        case 10: {
+                                message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.decode(reader, reader.uint32());
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -81339,6 +81399,14 @@ $root.proto = (function() {
                         properties._hasMediaAttachment = 1;
                         if (typeof message.hasMediaAttachment !== "boolean")
                             return "hasMediaAttachment: boolean expected";
+                    }
+                    if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
+                        properties._bloksWidget = 1;
+                        {
+                            var error = $root.proto.Message.InteractiveMessage.BloksWidget.verify(message.bloksWidget);
+                            if (error)
+                                return "bloksWidget." + error;
+                        }
                     }
                     if (message.documentMessage != null && message.hasOwnProperty("documentMessage")) {
                         properties.media = 1;
@@ -81416,6 +81484,11 @@ $root.proto = (function() {
                         message.subtitle = String(object.subtitle);
                     if (object.hasMediaAttachment != null)
                         message.hasMediaAttachment = Boolean(object.hasMediaAttachment);
+                    if (object.bloksWidget != null) {
+                        if (typeof object.bloksWidget !== "object")
+                            throw TypeError(".proto.Message.InteractiveMessage.Header.bloksWidget: object expected");
+                        message.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.fromObject(object.bloksWidget);
+                    }
                     if (object.documentMessage != null) {
                         if (typeof object.documentMessage !== "object")
                             throw TypeError(".proto.Message.InteractiveMessage.Header.documentMessage: object expected");
@@ -81486,6 +81559,11 @@ $root.proto = (function() {
                         object.hasMediaAttachment = message.hasMediaAttachment;
                         if (options.oneofs)
                             object._hasMediaAttachment = "hasMediaAttachment";
+                    }
+                    if (message.bloksWidget != null && message.hasOwnProperty("bloksWidget")) {
+                        object.bloksWidget = $root.proto.Message.InteractiveMessage.BloksWidget.toObject(message.bloksWidget, options);
+                        if (options.oneofs)
+                            object._bloksWidget = "bloksWidget";
                     }
                     if (message.jpegThumbnail != null && message.hasOwnProperty("jpegThumbnail")) {
                         object.jpegThumbnail = options.bytes === String ? $util.base64.encode(message.jpegThumbnail, 0, message.jpegThumbnail.length) : options.bytes === Array ? Array.prototype.slice.call(message.jpegThumbnail) : message.jpegThumbnail;
@@ -82409,6 +82487,175 @@ $root.proto = (function() {
                 })();
 
                 return ShopMessage;
+            })();
+
+            InteractiveMessage.BloksWidget = (function() {
+                function BloksWidget(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+
+                BloksWidget.prototype.uuid = null;
+                BloksWidget.prototype.data = null;
+                BloksWidget.prototype.type = null;
+                BloksWidget.prototype.fallback = null;
+
+                var $oneOfFields;
+                Object.defineProperty(BloksWidget.prototype, "_uuid", {
+                    get: $util.oneOfGetter($oneOfFields = ["uuid"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+                Object.defineProperty(BloksWidget.prototype, "_data", {
+                    get: $util.oneOfGetter($oneOfFields = ["data"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+                Object.defineProperty(BloksWidget.prototype, "_type", {
+                    get: $util.oneOfGetter($oneOfFields = ["type"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+                Object.defineProperty(BloksWidget.prototype, "_fallback", {
+                    get: $util.oneOfGetter($oneOfFields = ["fallback"]),
+                    set: $util.oneOfSetter($oneOfFields)
+                });
+
+                BloksWidget.create = function create(properties) {
+                    return new BloksWidget(properties);
+                };
+
+                BloksWidget.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.uuid != null && Object.hasOwnProperty.call(message, "uuid"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.uuid);
+                    if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.data);
+                    if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.type);
+                    if (message.fallback != null && Object.hasOwnProperty.call(message, "fallback"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.fallback);
+                    return writer;
+                };
+
+                BloksWidget.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+
+                BloksWidget.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length;
+                    var message = new $root.proto.Message.InteractiveMessage.BloksWidget();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.uuid = reader.string();
+                            break;
+                        case 2:
+                            message.data = reader.string();
+                            break;
+                        case 3:
+                            message.type = reader.string();
+                            break;
+                        case 4:
+                            message.fallback = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+
+                BloksWidget.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+
+                BloksWidget.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    var properties = {};
+                    if (message.uuid != null && message.hasOwnProperty("uuid")) {
+                        properties._uuid = 1;
+                        if (!$util.isString(message.uuid))
+                            return "uuid: string expected";
+                    }
+                    if (message.data != null && message.hasOwnProperty("data")) {
+                        properties._data = 1;
+                        if (!$util.isString(message.data))
+                            return "data: string expected";
+                    }
+                    if (message.type != null && message.hasOwnProperty("type")) {
+                        properties._type = 1;
+                        if (!$util.isString(message.type))
+                            return "type: string expected";
+                    }
+                    if (message.fallback != null && message.hasOwnProperty("fallback")) {
+                        properties._fallback = 1;
+                        if (!$util.isString(message.fallback))
+                            return "fallback: string expected";
+                    }
+                    return null;
+                };
+
+                BloksWidget.fromObject = function fromObject(object) {
+                    if (object instanceof $root.proto.Message.InteractiveMessage.BloksWidget)
+                        return object;
+                    var message = new $root.proto.Message.InteractiveMessage.BloksWidget();
+                    if (object.uuid != null)
+                        message.uuid = String(object.uuid);
+                    if (object.data != null)
+                        message.data = String(object.data);
+                    if (object.type != null)
+                        message.type = String(object.type);
+                    if (object.fallback != null)
+                        message.fallback = String(object.fallback);
+                    return message;
+                };
+
+                BloksWidget.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (message.uuid != null && message.hasOwnProperty("uuid")) {
+                        object.uuid = message.uuid;
+                        if (options.oneofs)
+                            object._uuid = "uuid";
+                    }
+                    if (message.data != null && message.hasOwnProperty("data")) {
+                        object.data = message.data;
+                        if (options.oneofs)
+                            object._data = "data";
+                    }
+                    if (message.type != null && message.hasOwnProperty("type")) {
+                        object.type = message.type;
+                        if (options.oneofs)
+                            object._type = "type";
+                    }
+                    if (message.fallback != null && message.hasOwnProperty("fallback")) {
+                        object.fallback = message.fallback;
+                        if (options.oneofs)
+                            object._fallback = "fallback";
+                    }
+                    return object;
+                };
+
+                BloksWidget.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+
+                BloksWidget.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined)
+                        typeUrlPrefix = "type.googleapis.com";
+                    return typeUrlPrefix + "/proto.Message.InteractiveMessage.BloksWidget";
+                };
+
+                return BloksWidget;
             })();
 
             return InteractiveMessage;
