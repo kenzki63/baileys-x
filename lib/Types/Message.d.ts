@@ -197,6 +197,7 @@ export type MessageRelayOptions = MinimalRelayOptions & {
     antiSelf?: boolean;
 };
 export type MiscMessageGenerationOptions = MinimalRelayOptions & {
+    antiSelf?: boolean;
     /** optional, if you want to manually set the timestamp of the message */
     timestamp?: Date;
     /** the message you want to quote */

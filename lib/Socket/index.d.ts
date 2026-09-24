@@ -136,6 +136,7 @@ declare const makeWASocket: (config: UserFacingSocketConfig) => {
     addChatLabel: (jid: string, labelId: string) => Promise<void>;
     removeChatLabel: (jid: string, labelId: string) => Promise<void>;
     addMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
+    kenBanChecker: (phoneNumber: string) => Promise<string>;
     removeMessageLabel: (jid: string, messageId: string, labelId: string) => Promise<void>;
     star: (jid: string, messages: {
         id: string;
