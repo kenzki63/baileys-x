@@ -11,7 +11,7 @@ export declare function decodeMessageNode(stanza: BinaryNode, meId: string, meLi
     author: string;
     sender: string;
 };
-export declare const getDecryptionJid: (sender: string, repository: SignalRepository) => Promise<string>;
+export declare const getDecryptionJid: (sender: string, repository: SignalRepository, meId?: string, meLid?: string) => Promise<string>;
 export declare const decryptMessageNode: (stanza: BinaryNode, meId: string, meLid: string, repository: SignalRepository, logger: Logger) => {
     fullMessage: proto.IWebMessageInfo;
     category: string;
