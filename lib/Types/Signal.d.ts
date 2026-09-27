@@ -53,5 +53,11 @@ export type SignalRepository = {
     }>;
     injectE2ESession(opts: E2ESessionOpts): Promise<void>;
     jidToSignalProtocolAddress(jid: string): string;
+    lidMapping?: {
+        getLIDForPN(pn: string): Promise<string | null>;
+        getLIDsForPNs(pns: string[]): Promise<Array<{ pn: string; lid: string }> | null>;
+        getPNForLID(lid: string): Promise<string | null>;
+        storeLIDPNMappings(pairs: Array<{ pn: string; lid: string }>): Promise<void>;
+    };
 };
 export {};
